@@ -2,7 +2,7 @@
 -- Archivo de base de datos --
 ------------------------------
 
-DROP TABLE IF EXIST users CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users
 (
@@ -14,18 +14,18 @@ CREATE TABLE users
    ,role        integer         NOT NULL
 );
 
-DROP TABLE IF EXIST posts CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;
 
 CREATE TABLE posts
 (
     id          bigserial       PRIMARY KEY
    ,title       varchar(255)    NOT NULL
-   ,type        varchar(25)     NOT NULL REFERENCES types (id)
+   ,type        bigint     NOT NULL REFERENCES types (id)
    ,createdat   timestamp   
-   ,comments    bigint          REFERENCES comments (id)   
+   ,comments    bigint  
 );
 
-DROP TABLE IF EXIST comments CASCADE;
+DROP TABLE IF EXISTS comments CASCADE;
 
 CREATE TABLE comments
 (
@@ -34,7 +34,7 @@ CREATE TABLE comments
    ,parentpost  bigint          NOT NULL REFERENCES posts (id)
 );
 
-DROP TABLE IF EXIST types CASCADE;
+DROP TABLE IF EXISTS types CASCADE;
 
 CREATE TABLE types
 (
