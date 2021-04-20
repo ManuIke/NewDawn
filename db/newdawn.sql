@@ -42,3 +42,12 @@ CREATE TABLE types
    ,name        varchar(25)     NOT NULL
    ,description varchar(255)    
 );
+
+DROP TABLE IF EXISTS games CASCADE;
+
+CREATE TABLE games
+(
+    id          bigserial       PRIMARY KEY
+   ,name        varchar(25)     NOT NULL
+   ,description varchar(255)    
+);
