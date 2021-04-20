@@ -12,6 +12,8 @@ CREATE TABLE users
    ,posts       bigint
    ,comments    bigint
    ,role        integer         NOT NULL
+   ,banned      boolean         NOT NULL
+   ,banreason   varchar(255)
 );
 
 DROP TABLE IF EXISTS posts CASCADE;
