@@ -32,7 +32,7 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-dark bg-dark navbar-expand-md fixed-top',
+            'class' => 'navbar bg-light navbar-expand-md fixed-top',
         ],
         'collapseOptions' => [
             'class' => 'justify-content-end',
@@ -41,9 +41,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Noticias', 'url' => ['/news/index']],
+            //['label' => 'Wiki', 'url' => ['/wiki/index']],
+            ['label' => 'Foro', 'url' => ['/posts/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -72,9 +72,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="float-right"><?= Yii::powered() ?></p>
+        <p class="float-left">&copy; Ikelest <?= date('Y') ?></p>
     </div>
 </footer>
 
