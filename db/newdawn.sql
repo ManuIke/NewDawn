@@ -54,3 +54,12 @@ CREATE TABLE games
    ,description varchar(255)
    ,releasedate timestamp          
 );
+
+DROP TABLE IF EXISTS roles CASCADE;
+
+CREATE TABLE roles
+(
+    id          bigserial       PRIMARY KEY
+   ,name        varchar(25)     NOT NULL        
+);
+
