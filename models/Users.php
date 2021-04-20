@@ -13,6 +13,8 @@ use Yii;
  * @property int|null $posts
  * @property int|null $comments
  * @property int $role
+ * @property bool $banned
+ * @property string|null $banreason
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -30,11 +32,12 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password', 'role'], 'required'],
+            [['username', 'password', 'role', 'banned'], 'required'],
             [['posts', 'comments', 'role'], 'default', 'value' => null],
             [['posts', 'comments', 'role'], 'integer'],
+            [['banned'], 'boolean'],
             [['username'], 'string', 'max' => 25],
-            [['password'], 'string', 'max' => 255],
+            [['password', 'banreason'], 'string', 'max' => 255],
             [['username'], 'unique'],
         ];
     }
@@ -51,6 +54,8 @@ class Users extends \yii\db\ActiveRecord
             'posts' => 'Posts',
             'comments' => 'Comments',
             'role' => 'Role',
+            'banned' => 'Banned',
+            'banreason' => 'Banreason',
         ];
     }
 }
