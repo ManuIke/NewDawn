@@ -49,5 +49,6 @@ CREATE TABLE games
 (
     id          bigserial       PRIMARY KEY
    ,name        varchar(25)     NOT NULL
-   ,description varchar(255)    
+   ,description varchar(255)
+   ,releasedate timestamp          
 );
