@@ -22,9 +22,10 @@ CREATE TABLE posts
 (
     id              bigserial       PRIMARY KEY
    ,title           varchar(255)    NOT NULL
-   ,type            bigint     NOT NULL REFERENCES types (id)
+   ,type            bigint          NOT NULL REFERENCES types (id)
    ,createdat       timestamp   
-   ,comments        bigint  
+   ,comments        bigint
+   ,author          varchar(25)     NOT NULL REFERENCES users (username)
 );
 
 DROP TABLE IF EXISTS comments CASCADE;
