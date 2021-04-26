@@ -22,10 +22,10 @@ CREATE TABLE posts
 (
     id              bigserial       PRIMARY KEY
    ,title           varchar(255)    NOT NULL
-   ,type            bigint          NOT NULL REFERENCES types (id)
+   ,type            bigint          NOT NULL
    ,createdat       timestamp   
    ,comments        bigint
-   ,author          varchar(25)     NOT NULL REFERENCES users (username)
+   ,author          varchar(25)     NOT NULL
    ,content         varchar(400)    NOT NULL
 );
 
@@ -36,15 +36,6 @@ CREATE TABLE comments
     id              bigserial       PRIMARY KEY
    ,text            varchar(400)    NOT NULL
    ,parentpost      bigint          NOT NULL REFERENCES posts (id)
-);
-
-DROP TABLE IF EXISTS types CASCADE;
-
-CREATE TABLE types
-(
-    id              bigserial       PRIMARY KEY
-   ,name            varchar(25)     NOT NULL
-   ,description     varchar(255)    
 );
 
 DROP TABLE IF EXISTS games CASCADE;

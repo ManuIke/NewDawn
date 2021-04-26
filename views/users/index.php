@@ -32,6 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'posts',
             'comments',
             //'role',
+            //'banned:boolean',
+            //'banreason',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

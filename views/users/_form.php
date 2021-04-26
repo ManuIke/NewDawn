@@ -22,6 +22,10 @@ use yii\bootstrap4\ActiveForm;
 
     <?= $form->field($model, 'role')->textInput() ?>
 
+    <?= $form->field($model, 'banned')->checkbox() ?>
+
+    <?= $form->field($model, 'banreason')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

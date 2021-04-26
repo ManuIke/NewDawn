@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Posts */
 
 $this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -28,11 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'title',
             'type',
             'createdat',
-            'comments',
+            'author',
+            'content',
         ],
     ]) ?>
 

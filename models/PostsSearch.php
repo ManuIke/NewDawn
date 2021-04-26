@@ -18,7 +18,7 @@ class PostsSearch extends Posts
     {
         return [
             [['id', 'type', 'comments'], 'integer'],
-            [['title', 'createdat'], 'safe'],
+            [['title', 'createdat', 'author', 'content'], 'safe'],
         ];
     }
 
@@ -64,7 +64,9 @@ class PostsSearch extends Posts
             'comments' => $this->comments,
         ]);
 
-        $query->andFilterWhere(['ilike', 'title', $this->title]);
+        $query->andFilterWhere(['ilike', 'title', $this->title])
+            ->andFilterWhere(['ilike', 'author', $this->author])
+            ->andFilterWhere(['ilike', 'content', $this->content]);
 
         return $dataProvider;
     }

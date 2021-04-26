@@ -12,6 +12,8 @@ use Yii;
  * @property int $type
  * @property string|null $createdat
  * @property int|null $comments
+ * @property string $author
+ * @property string $content
  *
  * @property Comments[] $comments0
  */
@@ -31,11 +33,14 @@ class Posts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'type'], 'required'],
-            [['type', 'comments'], 'default', 'value' => null],
+            [['title', 'type', 'author', 'content'], 'required'],
+            [['type', 'comments'], 'default', 'value' => 0],
             [['type', 'comments'], 'integer'],
             [['createdat'], 'safe'],
+            [['createdat'], 'default', 'value' => date('d-m-Y')],
             [['title'], 'string', 'max' => 255],
+            [['author'], 'string', 'max' => 25],
+            [['content'], 'string', 'max' => 400],
         ];
     }
 
@@ -50,6 +55,8 @@ class Posts extends \yii\db\ActiveRecord
             'type' => 'Type',
             'createdat' => 'Createdat',
             'comments' => 'Comments',
+            'author' => 'Author',
+            'content' => 'Content',
         ];
     }
 
