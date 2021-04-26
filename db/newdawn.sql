@@ -26,6 +26,7 @@ CREATE TABLE posts
    ,createdat       timestamp   
    ,comments        bigint
    ,author          varchar(25)     NOT NULL REFERENCES users (username)
+   ,content         varchar(400)    NOT NULL
 );
 
 DROP TABLE IF EXISTS comments CASCADE;
