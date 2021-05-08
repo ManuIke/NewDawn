@@ -48,14 +48,6 @@ CREATE TABLE games
    ,releasedate     timestamp          
 );
 
-DROP TABLE IF EXISTS roles CASCADE;
-
-CREATE TABLE roles
-(
-    id              bigserial       PRIMARY KEY
-   ,name            varchar(25)     NOT NULL        
-);
-
 DROP TABLE IF EXISTS news CASCADE;
 
 CREATE TABLE news
