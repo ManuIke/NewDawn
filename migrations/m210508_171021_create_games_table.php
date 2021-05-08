@@ -14,6 +14,9 @@ class m210508_171021_create_games_table extends Migration
     {
         $this->createTable('{{%games}}', [
             'id' => $this->primaryKey(),
+            'name' => $this->string()->notNull(),
+            'description' => $this->string(),
+            'releaseDate' => $this->timestamp(),
         ]);
     }
 
