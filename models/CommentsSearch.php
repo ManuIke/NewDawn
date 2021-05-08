@@ -17,7 +17,7 @@ class CommentsSearch extends Comments
     public function rules()
     {
         return [
-            [['id', 'parentpost'], 'integer'],
+            [['id', 'parentPost'], 'integer'],
             [['text'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class CommentsSearch extends Comments
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parentpost' => $this->parentpost,
+            'parentPost' => $this->parentPost,
         ]);
 
         $query->andFilterWhere(['ilike', 'text', $this->text]);

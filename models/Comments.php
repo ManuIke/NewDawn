@@ -9,9 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $text
- * @property int $parentpost
+ * @property int|null $parentPost
  *
- * @property Posts $parentpost0
+ * @property Posts $parentPost0
  */
 class Comments extends \yii\db\ActiveRecord
 {
@@ -29,11 +29,11 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['text', 'parentpost'], 'required'],
-            [['parentpost'], 'default', 'value' => null],
-            [['parentpost'], 'integer'],
+            [['text'], 'required'],
+            [['parentPost'], 'default', 'value' => null],
+            [['parentPost'], 'integer'],
             [['text'], 'string', 'max' => 255],
-            [['parentpost'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::className(), 'targetAttribute' => ['parentpost' => 'id']],
+            [['parentPost'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::className(), 'targetAttribute' => ['parentPost' => 'id']],
         ];
     }
 
@@ -45,17 +45,17 @@ class Comments extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'text' => 'Text',
-            'parentpost' => 'Parentpost',
+            'parentPost' => 'Parent Post',
         ];
     }
 
     /**
-     * Gets query for [[Parentpost0]].
+     * Gets query for [[ParentPost0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getParentpost0()
+    public function getParentPost0()
     {
-        return $this->hasOne(Posts::className(), ['id' => 'parentpost']);
+        return $this->hasOne(Posts::className(), ['id' => 'parentPost']);
     }
 }

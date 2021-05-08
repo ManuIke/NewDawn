@@ -8,7 +8,7 @@ use yii\db\Migration;
  *
  * - `{{%posts}}`
  */
-class m210506_062841_create_comments_table extends Migration
+class m210508_215435_create_comments_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,21 +18,21 @@ class m210506_062841_create_comments_table extends Migration
         $this->createTable('{{%comments}}', [
             'id' => $this->primaryKey(),
             'text' => $this->string()->notNull(),
-            'parentpost' => $this->integer()->notNull(),
+            'parentPost' => $this->integer(),
         ]);
 
-        // creates index for column `parentpost`
+        // creates index for column `parentPost`
         $this->createIndex(
-            '{{%idx-comments-parentpost}}',
+            '{{%idx-comments-parentPost}}',
             '{{%comments}}',
-            'parentpost'
+            'parentPost'
         );
 
         // add foreign key for table `{{%posts}}`
         $this->addForeignKey(
-            '{{%fk-comments-parentpost}}',
+            '{{%fk-comments-parentPost}}',
             '{{%comments}}',
-            'parentpost',
+            'parentPost',
             '{{%posts}}',
             'id',
             'CASCADE'
@@ -46,13 +46,13 @@ class m210506_062841_create_comments_table extends Migration
     {
         // drops foreign key for table `{{%posts}}`
         $this->dropForeignKey(
-            '{{%fk-comments-parentpost}}',
+            '{{%fk-comments-parentPost}}',
             '{{%comments}}'
         );
 
-        // drops index for column `parentpost`
+        // drops index for column `parentPost`
         $this->dropIndex(
-            '{{%idx-comments-parentpost}}',
+            '{{%idx-comments-parentPost}}',
             '{{%comments}}'
         );
 

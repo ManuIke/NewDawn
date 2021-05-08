@@ -18,6 +18,7 @@ class GamesSearch extends Games
     {
         return [
             [['id'], 'integer'],
+            [['name', 'description', 'releaseDate'], 'safe'],
         ];
     }
 
@@ -58,7 +59,11 @@ class GamesSearch extends Games
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'releaseDate' => $this->releaseDate,
         ]);
+
+        $query->andFilterWhere(['ilike', 'name', $this->name])
+            ->andFilterWhere(['ilike', 'description', $this->description]);
 
         return $dataProvider;
     }

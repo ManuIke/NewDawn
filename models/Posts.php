@@ -8,8 +8,14 @@ use Yii;
  * This is the model class for table "posts".
  *
  * @property int $id
+ * @property string $title
+ * @property string $type
+ * @property string|null $createdAt
+ * @property int|null $comments
+ * @property string $author
+ * @property string|null $content
  *
- * @property Comments[] $comments
+ * @property Comments[] $comments0
  */
 class Posts extends \yii\db\ActiveRecord
 {
@@ -26,7 +32,13 @@ class Posts extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [];
+        return [
+            [['title', 'type', 'author'], 'required'],
+            [['createdAt'], 'safe'],
+            [['comments'], 'default', 'value' => null],
+            [['comments'], 'integer'],
+            [['title', 'type', 'author', 'content'], 'string', 'max' => 255],
+        ];
     }
 
     /**
@@ -36,16 +48,22 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'title' => 'Title',
+            'type' => 'Type',
+            'createdAt' => 'Created At',
+            'comments' => 'Comments',
+            'author' => 'Author',
+            'content' => 'Content',
         ];
     }
 
     /**
-     * Gets query for [[Comments]].
+     * Gets query for [[Comments0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getComments()
+    public function getComments0()
     {
-        return $this->hasMany(Comments::className(), ['parentpost' => 'id']);
+        return $this->hasMany(Comments::className(), ['parentPost' => 'id']);
     }
 }

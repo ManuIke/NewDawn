@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%users}}`.
  */
-class m210506_061402_create_users_table extends Migration
+class m210508_213151_create_users_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -20,7 +20,7 @@ class m210506_061402_create_users_table extends Migration
             'comments' => $this->integer(),
             'role' => $this->string()->notNull(),
             'banned' => $this->boolean(),
-            'banreason' => $this->string(400)
+            'banreason' => $this->string(400),
         ]);
     }
 

@@ -18,6 +18,7 @@ class NewsSearch extends News
     {
         return [
             [['id'], 'integer'],
+            [['title', 'content', 'creationDate'], 'safe'],
         ];
     }
 
@@ -58,7 +59,11 @@ class NewsSearch extends News
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'creationDate' => $this->creationDate,
         ]);
+
+        $query->andFilterWhere(['ilike', 'title', $this->title])
+            ->andFilterWhere(['ilike', 'content', $this->content]);
 
         return $dataProvider;
     }
