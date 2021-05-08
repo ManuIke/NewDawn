@@ -32,7 +32,7 @@ class Comments extends \yii\db\ActiveRecord
             [['text', 'parentpost'], 'required'],
             [['parentpost'], 'default', 'value' => null],
             [['parentpost'], 'integer'],
-            [['text'], 'string', 'max' => 400],
+            [['text'], 'string', 'max' => 255],
             [['parentpost'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::className(), 'targetAttribute' => ['parentpost' => 'id']],
         ];
     }

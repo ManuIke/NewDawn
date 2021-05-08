@@ -8,9 +8,6 @@ use Yii;
  * This is the model class for table "news".
  *
  * @property int $id
- * @property string $title
- * @property string $content
- * @property string $creationdate
  */
 class News extends \yii\db\ActiveRecord
 {
@@ -27,12 +24,7 @@ class News extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['title', 'content', 'creationdate'], 'required'],
-            [['creationdate'], 'safe'],
-            [['title'], 'string', 'max' => 50],
-            [['content'], 'string', 'max' => 2000],
-        ];
+        return [];
     }
 
     /**
@@ -42,9 +34,6 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
-            'creationdate' => 'Creationdate',
         ];
     }
 }

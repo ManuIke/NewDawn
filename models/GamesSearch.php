@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\News;
+use app\models\Games;
 
 /**
- * NewsSearch represents the model behind the search form of `app\models\News`.
+ * GamesSearch represents the model behind the search form of `app\models\Games`.
  */
-class NewsSearch extends News
+class GamesSearch extends Games
 {
     /**
      * {@inheritdoc}
@@ -39,7 +39,7 @@ class NewsSearch extends News
      */
     public function search($params)
     {
-        $query = News::find();
+        $query = Games::find();
 
         // add conditions that should always apply here
 

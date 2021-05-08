@@ -17,8 +17,8 @@ class UsersSearch extends Users
     public function rules()
     {
         return [
-            [['id', 'posts', 'comments', 'role'], 'integer'],
-            [['username', 'password', 'banreason'], 'safe'],
+            [['id', 'posts', 'comments'], 'integer'],
+            [['username', 'password', 'role', 'banreason'], 'safe'],
             [['banned'], 'boolean'],
         ];
     }
@@ -62,12 +62,12 @@ class UsersSearch extends Users
             'id' => $this->id,
             'posts' => $this->posts,
             'comments' => $this->comments,
-            'role' => $this->role,
             'banned' => $this->banned,
         ]);
 
         $query->andFilterWhere(['ilike', 'username', $this->username])
             ->andFilterWhere(['ilike', 'password', $this->password])
+            ->andFilterWhere(['ilike', 'role', $this->role])
             ->andFilterWhere(['ilike', 'banreason', $this->banreason]);
 
         return $dataProvider;

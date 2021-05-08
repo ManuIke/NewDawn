@@ -12,11 +12,7 @@ use yii\bootstrap4\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'creationdate')->textInput() ?>
+    <?= $form->field($model, 'id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -17,8 +17,7 @@ class PostsSearch extends Posts
     public function rules()
     {
         return [
-            [['id', 'type', 'comments'], 'integer'],
-            [['title', 'createdat', 'author', 'content'], 'safe'],
+            [['id'], 'integer'],
         ];
     }
 
@@ -59,14 +58,7 @@ class PostsSearch extends Posts
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => $this->type,
-            'createdat' => $this->createdat,
-            'comments' => $this->comments,
         ]);
-
-        $query->andFilterWhere(['ilike', 'title', $this->title])
-            ->andFilterWhere(['ilike', 'author', $this->author])
-            ->andFilterWhere(['ilike', 'content', $this->content]);
 
         return $dataProvider;
     }

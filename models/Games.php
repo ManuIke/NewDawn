@@ -8,9 +8,6 @@ use Yii;
  * This is the model class for table "games".
  *
  * @property int $id
- * @property string $name
- * @property string|null $description
- * @property string|null $releasedate
  */
 class Games extends \yii\db\ActiveRecord
 {
@@ -27,12 +24,7 @@ class Games extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['name'], 'required'],
-            [['releasedate'], 'safe'],
-            [['name'], 'string', 'max' => 25],
-            [['description'], 'string', 'max' => 255],
-        ];
+        return [];
     }
 
     /**
@@ -42,9 +34,6 @@ class Games extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'releasedate' => 'Releasedate',
         ];
     }
 }

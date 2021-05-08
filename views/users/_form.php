@@ -20,7 +20,7 @@ use yii\bootstrap4\ActiveForm;
 
     <?= $form->field($model, 'comments')->textInput() ?>
 
-    <?= $form->field($model, 'role')->textInput() ?>
+    <?= $form->field($model, 'role')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'banned')->checkbox() ?>
 
