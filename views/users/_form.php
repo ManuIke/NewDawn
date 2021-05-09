@@ -16,16 +16,6 @@ use yii\bootstrap4\ActiveForm;
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'posts')->textInput() ?>
-
-    <?= $form->field($model, 'comments')->textInput() ?>
-
-    <?= $form->field($model, 'role')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'banned')->checkbox() ?>
-
-    <?= $form->field($model, 'banreason')->textInput(['maxlength' => true]) ?>
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

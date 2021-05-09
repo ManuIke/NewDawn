@@ -8,7 +8,6 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -37,8 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="offset-sm-2" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+    <div class="offset-sm-2" style="color:black;">
+        Don't have an account? Register here!
+        <?= Html::a('Register',['users/create'],['class' => 'btn btn-primary']) ?>
     </div>
 </div>

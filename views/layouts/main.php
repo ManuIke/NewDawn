@@ -41,9 +41,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Noticias', 'url' => ['/news/index']],
+            ['label' => 'News', 'url' => ['/news/index']],
             //['label' => 'Wiki', 'url' => ['/wiki/index']],
-            ['label' => 'Foro', 'url' => ['/posts/index']],
+            ['label' => 'Forum', 'url' => ['/posts/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
