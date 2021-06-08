@@ -12,6 +12,10 @@ use yii\bootstrap4\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?php if($model->role === 'Admin'): ?>
+        <?= $form->field($model, 'role')->textInput(['maxlength' => true])?>
+    <?php endif ?>
+    
     <?php $model->role = "User" ?>
 
     <?= $form->field($model, 'role')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>

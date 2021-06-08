@@ -8,7 +8,6 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Users';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="users-index">
 
@@ -24,18 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'username',
-            'password',
             'posts',
             'comments',
             //'role',
             //'banned:boolean',
             //'banreason',
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
