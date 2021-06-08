@@ -7,8 +7,6 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Games */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Games', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="games-view">

@@ -6,8 +6,6 @@ use yii\bootstrap4\Html;
 /* @var $model app\models\Games */
 
 $this->title = 'Create Games';
-$this->params['breadcrumbs'][] = ['label' => 'Games', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="games-create">
 

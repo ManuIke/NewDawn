@@ -6,8 +6,6 @@ use yii\bootstrap4\Html;
 /* @var $model app\models\Posts */
 
 $this->title = 'Create Posts';
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="posts-create">
 

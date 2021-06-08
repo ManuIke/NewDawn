@@ -1,20 +1,35 @@
 <?php
 
 use yii\bootstrap4\Html;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 
-$this->title = 'Create Users';
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Register';
 ?>
 <div class="users-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?php $form = ActiveForm::begin(); ?>
+    
+    <?php $model->role = "User" ?>
+
+    <?= $form->field($model, 'role')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'password_repeat')->passwordInput(['maxlength' => true]) ?>
+
+    <div class="form-group">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
 
 </div>

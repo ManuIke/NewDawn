@@ -1,21 +1,38 @@
 <?php
 
 use yii\bootstrap4\Html;
+use yii\bootstrap4\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 
+var_dump($model->role);
+
 $this->title = 'Update Users: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="users-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?php $form = ActiveForm::begin(); ?>
 
+    <?php if($model->role == 'Admin' || $model->role == 'Owner'): ?>
+        <?= Html::activeDropDownList($model, 'role',
+        ArrayHelper::getValue($roles, 'role')) ?>
+    <?php endif ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'password_repeat')->passwordInput(['maxlength' => true]) ?>
+
+    <div class="form-group">
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
+
+<?php ActiveForm::end(); ?>
 </div>

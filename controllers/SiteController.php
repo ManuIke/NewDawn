@@ -23,6 +23,11 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
+                        'actions' => ['logout', 'index','view','create','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],

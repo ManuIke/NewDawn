@@ -6,38 +6,27 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->username . "'s profile";
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="users-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'username',
-            'password',
             'posts',
             'comments',
             'role',
             'banned:boolean',
             'banreason',
         ],
-    ]) ?>
+        ]) ?>
+        <p>
+            <?= Html::a('Update profile', ['update', 'id' => $model->Id], ['class' => 'btn btn-success']) ?>
+        </p>
 
 </div>

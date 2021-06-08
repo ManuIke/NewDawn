@@ -130,6 +130,10 @@ class UsersController extends Controller
         $model = $this->findModel($id);
         $model->scenario = Users::SCENARIO_UPDATE;
         $model->password = '';
+        $roles = ['role' =>'User',
+        'role' =>'Editor',
+        'role' =>'Moderator',
+        'role' =>'Admin'];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -137,6 +141,7 @@ class UsersController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'roles' => $roles,
         ]);
     }
 
