@@ -52,11 +52,11 @@ class PostsController extends Controller
     public function actionIndex()
     {
         $searchModel = new PostsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $posts = (new \yii\db\Query())->select('title,author,createdAt,comments,id')->from('posts')->orderBy('id DESC')->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'posts' => $posts,
         ]);
     }
 

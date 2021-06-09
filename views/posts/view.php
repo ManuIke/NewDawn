@@ -13,28 +13,17 @@ $this->title = $model->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <div class="row" id="OGPost">
+        <div class="col-md-1" id="OGContent">
+            <?= $model->author ?>
+        </div>
+        <div class="col-md-9" id="OGContent">
+            <?= $model->content ?>
+        </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'type',
-            'createdAt',
-            'comments',
-            'author',
-            'content',
-        ],
-    ]) ?>
+        <div class="col-md-2" id="OGContent">
+            <?= $model->createdAt ?>
+        </div>
+    </div>
 
 </div>

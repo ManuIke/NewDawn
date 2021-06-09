@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 
-var_dump($model->role);
+var_dump(Yii::$app->user->identity->role);
 
 $this->title = 'Update Users: ' . $model->id;
 ?>

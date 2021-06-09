@@ -120,3 +120,26 @@ a.desc:after {
     content: "\f2ed";
     color: var(--danger);
 }
+
+.posts {
+    width: 100%;
+    background-color: rgb(193, 238, 252);
+    text-align: center;
+}
+
+.posts, th, td{
+    border: 1px solid black;
+}
+
+.posts th:nth-child(1) {
+    width: 70%;
+}
+
+#OGPost{
+    background-color: rgb(193, 238, 252);
+
+}
+
+#OGContent{
+    border: 1px solid black;
+}

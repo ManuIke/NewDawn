@@ -16,7 +16,23 @@ $this->title = 'Register';
     
     <?php $model->role = "User" ?>
 
+    <?php $model->comments = 0 ?>
+
+    <?php $model->posts = 0 ?>
+
+    <?php $model->banned = 0 ?>
+
+    <?php $model->banreason = "" ?>
+
     <?= $form->field($model, 'role')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
+
+    <?= $form->field($model, 'comments')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
+
+    <?= $form->field($model, 'posts')->textInput()->hiddenInput()->label(false) ?>
+
+    <?= $form->field($model, 'banned')->textInput()->hiddenInput()->label(false) ?>
+
+    <?= $form->field($model, 'banreason')->textInput()->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 

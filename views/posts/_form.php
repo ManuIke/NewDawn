@@ -12,30 +12,45 @@ use yii\bootstrap4\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <div class="row">
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        <div class="col-md-10">
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        </div>
+    
 
-    <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+        <div class="col-md-2">
+            <?= $form->field($model, 'type')->dropdownList([
+                'Help' => 'Help',
+                'Bug' => 'Bug',
+                'Strategy' => 'Strategy',
+                'Humor' => 'Humor'
+            ]) ?>
+        </div>
 
-    <?php $model->createdAt = date('d-m-Y H:i:s'); ?>
-
-    <?= $form->field($model, 'createdAt')->textInput()->hiddenInput()->label(false) ?>
-
-    <?php $model->comments = 0; ?>
-
-    <?= $form->field($model, 'comments')->textInput()->hiddenInput()->label(false) ?>
-
-    <?php $model->author = Yii::$app->user->identity->username; ?>
-
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
-
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
-
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    
+        <?php $model->createdAt = date('d-m-Y H:i:s'); ?>
+    
+        <?= $form->field($model, 'createdAt')->textInput()->hiddenInput()->label(false) ?>
+    
+        <?php $model->comments = 0; ?>
+    
+        <?= $form->field($model, 'comments')->textInput()->hiddenInput()->label(false) ?>
+    
+        <?php $model->author = Yii::$app->user->identity->username; ?>
+    
+        <?= $form->field($model, 'author')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
+    
+        <div class="col-md-12">
+            <?= $form->field($model, 'content')->textarea(['maxlength' => true]) ?>
+        </div>
+    
+    
+        <div class="form-group">
+            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        </div>
+    
+        <?php ActiveForm::end(); ?>
     </div>
-
-    <?php ActiveForm::end(); ?>
 
 </div>
