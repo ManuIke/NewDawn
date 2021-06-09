@@ -12,17 +12,25 @@ use yii\bootstrap4\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'createdAt')->textInput() ?>
+    <?php $model->createdAt = date('d-m-Y H:i:s'); ?>
 
-    <?= $form->field($model, 'comments')->textInput() ?>
+    <?= $form->field($model, 'createdAt')->textInput()->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+    <?php $model->comments = 0; ?>
+
+    <?= $form->field($model, 'comments')->textInput()->hiddenInput()->label(false) ?>
+
+    <?php $model->author = Yii::$app->user->identity->username; ?>
+
+    <?= $form->field($model, 'author')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

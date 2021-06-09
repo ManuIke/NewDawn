@@ -18,8 +18,9 @@ $this->title = 'Update Users: ' . $model->id;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php if($model->role == 'Admin' || $model->role == 'Owner'): ?>
-        <?= Html::activeDropDownList($model, 'role',
-        ArrayHelper::getValue($roles, 'role')) ?>
+        <?= $form->field($model, 'role')->label('Role')->dropDownList(
+            $roles
+        ) ?>
     <?php endif ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>

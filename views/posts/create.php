@@ -11,6 +11,8 @@ $this->title = 'Create Posts';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php var_dump(Yii::$app->user->identity->username)?>
+
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

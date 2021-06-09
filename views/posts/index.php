@@ -28,7 +28,7 @@ $this->title = 'Posts';
             'type',
             'createdAt',
             'comments',
-            //'author',
+            'author',
             //'content',
         ],
     ]); ?>
