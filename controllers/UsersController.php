@@ -159,6 +159,23 @@ class UsersController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionBan($id)
+    {
+        Yii::$app->db->createCommand('UPDATE users SET banned=true WHERE id=:id')
+        ->bindValue(':id', $id)-> execute();
+
+        return $this->redirect(['view', 'id' => $id]);
+    }
+
+    public function actionUnban($id)
+    {
+        Yii::$app->db->createCommand('UPDATE users SET banned=false WHERE id=:id')
+        ->bindValue(':id', $id)-> execute();
+
+        return $this->redirect(['view', 'id' => $id]);
+    }
+
+
     /**
      * Finds the Users model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

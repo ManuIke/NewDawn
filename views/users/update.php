@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 
-$this->title = 'Update Users: ' . $model->id;
+$this->title = 'Update user ' . $model->username;
 ?>
 <div class="users-update">
 
@@ -15,9 +15,12 @@ $this->title = 'Update Users: ' . $model->id;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?php $model->role = $model->role ?>
+
     <?php if(Yii::$app->user->identity->role == 'Admin' || Yii::$app->user->identity->role == 'Owner'): ?>
         <?= $form->field($model, 'role')->label('Role')->dropDownList(
-            $roles
+            $roles,
+            ['selected' => $model->role]
         ) ?>
     <?php endif ?>
 
