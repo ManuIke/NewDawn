@@ -12,9 +12,11 @@ use yii\bootstrap4\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'text')->textarea(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'parentPost')->textInput() ?>
+    <?php $model->parentPost = $parentPost ?>
+
+    <?= $form->field($model, 'parentPost')->textInput()->hiddenInput()->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -26,4 +26,8 @@ $this->title = $model->title;
         </div>
     </div>
 
+    <p>
+            <?= Html::a('Make a comment', ['comments/create', 'postId' => $model->id], ['class' => 'btn btn-success']) ?>
+    </p>
+
 </div>

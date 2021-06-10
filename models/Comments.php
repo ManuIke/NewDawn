@@ -29,10 +29,11 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['text'], 'required'],
+            [['text','author'], 'required'],
+            [['createdAt'], 'safe'],
             [['parentPost'], 'default', 'value' => null],
             [['parentPost'], 'integer'],
-            [['text'], 'string', 'max' => 255],
+            [['text','author'], 'string', 'max' => 255],
             [['parentPost'], 'exist', 'skipOnError' => true, 'targetClass' => Posts::className(), 'targetAttribute' => ['parentPost' => 'id']],
         ];
     }

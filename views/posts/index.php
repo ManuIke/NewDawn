@@ -7,6 +7,18 @@ use yii\bootstrap4\Html;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Posts';
+
+$js = <<<EOF
+
+$(document).ready(function(){
+    $('table td').click(function(e){
+        var id = $(this).closest('tr').attr('id');
+        location.href = "/index.php?r=posts/view&id="+id;
+    });
+});
+
+EOF;
+$this->registerJs($js);
 ?>
 <div class="posts-index">
 
