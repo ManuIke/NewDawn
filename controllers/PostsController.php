@@ -52,7 +52,8 @@ class PostsController extends Controller
     public function actionIndex()
     {
         $searchModel = new PostsSearch();
-        $posts = (new \yii\db\Query())->select('title,author,createdAt,comments,id')->from('posts')->orderBy('id DESC')->all();
+        $posts = (new \yii\db\Query())->select('title,author,createdAt,comments,id')
+        ->from('posts')->orderBy('id DESC')->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -68,8 +69,17 @@ class PostsController extends Controller
      */
     public function actionView($id)
     {
+        $comments = (new \yii\db\Query())->select('author,text,createdAt')->from('comments')
+        ->where('"parentPost" = :id', [':id' => $id])->all();
+
+        $authorComments = (new \yii\db\Query())->select('comments')->from('users');
+        $authorPosts = (new \yii\db\Query())->select('posts')->from('users');
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'comments' => $comments,
+            'authorComments' => $authorComments,
+            'authorPosts' => $authorPosts,
         ]);
     }
 
@@ -83,6 +93,12 @@ class PostsController extends Controller
         $model = new Posts();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $postCount = (new \yii\db\Query())->select('posts')->from('users')
+            ->where('username = :username', ['username'=>Yii::$app->user->identity->username])->scalar();
+            $postCount = $postCount + 1;
+            Yii::$app->db->createCommand('UPDATE users SET posts=:posts WHERE username=:username')
+            ->bindValue(':posts', $postCount)
+            ->bindValue(':username', Yii::$app->user->identity->username)-> execute();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

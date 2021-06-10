@@ -85,6 +85,19 @@ class CommentsController extends Controller
         $parentPost = $postId;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $commentCount = (new \yii\db\Query())->select('comments')->from('users')
+            ->where('username = :username', [':username'=>Yii::$app->user->identity->username])->scalar();
+            $commentCount = $commentCount + 1;
+            Yii::$app->db->createCommand('UPDATE users SET comments=:comments WHERE username=:username')
+            ->bindValue(':comments', $commentCount)
+            ->bindValue(':username', Yii::$app->user->identity->username)-> execute();
+
+            $commentCount2 = (new \yii\db\Query())->select('comments')->from('posts')
+            ->where('id = :postId', [':postId'=> $parentPost])->scalar();
+            $commentCount2 = $commentCount2 + 1;
+            Yii::$app->db->createCommand('UPDATE posts SET comments=:comments WHERE id=:postId')
+            ->bindValue(':comments', $commentCount2)
+            ->bindValue(':postId', $parentPost)-> execute();
             return $this->redirect(['posts/view', 'id' => $parentPost]);
         }
 

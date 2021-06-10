@@ -128,6 +128,7 @@ a.desc:after {
 }
 
 .posts, th, td{
+    min-height: 200px;
     border: 1px solid black;
 }
 
@@ -135,11 +136,29 @@ a.desc:after {
     width: 70%;
 }
 
-#OGPost{
-    background-color: rgb(193, 238, 252);
-
+.posts tr:nth-child(2n) {
+    width: 70%;
+    background-color: rgb(157, 217, 236);
 }
 
-#OGContent{
+#OGPost{
+    background-color: rgb(193, 238, 252);
+    min-height: 100px;
+}
+
+#OGContentA{
     border: 1px solid black;
+    width: 10%;
+    text-align: center;
+}
+
+#OGContentC{
+    border: 1px solid black;
+    width: 80%;
+}
+
+#OGContentD{
+    border: 1px solid black;
+    width: 10%;
+    text-align: center;
 }

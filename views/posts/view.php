@@ -11,21 +11,44 @@ $this->title = $model->title;
 ?>
 <div class="posts-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
 
     <div class="row" id="OGPost">
-        <div class="col-md-1" id="OGContent">
+        <div id="OGContentA">
             <?= $model->author ?>
+            <br>
+            Posts:<?=$authorPosts->where('username = :username',[':username' => $model->author])->scalar();?>
+            <br>
+            Comments:<?=$authorComments->where('username = :username',[':username' => $model->author])->scalar();?>
         </div>
-        <div class="col-md-9" id="OGContent">
+        <div id="OGContentC">
             <?= $model->content ?>
         </div>
 
-        <div class="col-md-2" id="OGContent">
+        <div id="OGContentD">
             <?= $model->createdAt ?>
         </div>
     </div>
 
+    <?php foreach($comments as $comment): ?>
+        <div class="row" id="OGPost">
+            <div id="OGContentA">
+                <?= $comment['author'] ?>
+                    <br>
+                    Posts:<?=$authorPosts->where('username = :username',[':username' => $comment['author']])->scalar();?>
+                    <br>
+                    Comments:<?=$authorComments->where('username = :username',[':username' => $comment['author']])->scalar();?>
+            </div>
+            <div id="OGContentC">
+                <?= $comment['text'] ?>
+            </div>
+
+            <div id="OGContentD">
+                <?= $comment['createdAt'] ?>
+            </div>
+        </div>
+    <?php endforeach ?>
+    <br>
     <p>
             <?= Html::a('Make a comment', ['comments/create', 'postId' => $model->id], ['class' => 'btn btn-success']) ?>
     </p>
