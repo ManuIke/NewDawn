@@ -56,6 +56,11 @@ class UsersController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -173,6 +178,17 @@ class UsersController extends Controller
         ->bindValue(':id', $id)-> execute();
 
         return $this->redirect(['view', 'id' => $id]);
+    }
+
+    public function actionChangerole($role, $id)
+    {
+        $model = $this->findModel($id);
+
+        Yii::$app->db->createCommand('UPDATE users SET role=:role WHERE id=:id')
+        ->bindValue(':role', $role)
+        ->bindValue(':id', $id)-> execute();
+        
+        return $this->redirect(['view', 'id' => $model->id]);
     }
 
 
