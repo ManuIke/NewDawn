@@ -39,8 +39,9 @@ $this->title = $model->username . "'s profile";
         <div class="row">
             <?= Html::a('Update profile', ['update', 'id' => $model->Id], ['class' => 'btn btn-success'])?> 
             <?php if(Yii::$app->user->identity->role == "Admin" || Yii::$app->user->identity->role == "Owner"):?>
-                <?= Html::a('Unban user', ['unban', 'id' => $model->Id], ['class' => 'btn btn-info']) ?> 
-                <?= Html::a('Ban user', ['ban', 'id' => $model->Id], ['class' => 'btn btn-danger'])?> 
+                <?= Html::a('Unban user', ['unban', 'id' => $model->Id], ['class' => 'btn btn-info'])?> 
+                <?= Html::a('Ban user', ['ban', 'id' => $model->Id], ['class' => 'btn btn-danger',
+                'data' => ['confirm' => 'Are you sure you want to ban the user?','method'=>'post']])?> 
                 <?php $form = ActiveForm::begin(); ?>
                     <?php Modal::begin([
                         'title' => 'Select role',

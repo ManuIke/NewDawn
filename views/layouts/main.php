@@ -42,7 +42,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'News', 'url' => ['/news/index']],
-            //['label' => 'Wiki', 'url' => ['/wiki/index']],
+            ['label' => 'Wiki', 'url' => ['/wiki/index']],
             ['label' => 'Forum', 'url' => ['/posts/index']],
             Yii::$app->user->isGuest ? ("") : (
                 ['label' => 'Profile', 'url' => ['/users/view', 'id' => Yii::$app->user->identity->Id]]
