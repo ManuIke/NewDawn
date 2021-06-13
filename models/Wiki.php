@@ -30,7 +30,7 @@ class Wiki extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category1'], 'required'],
+            [['name','category1','description'], 'required'],
             [['name', 'category1', 'category2', 'category3'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 2000],
         ];
