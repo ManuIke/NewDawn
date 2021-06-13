@@ -14,7 +14,7 @@ $this->title = 'Comment';
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php $model->createdAt = date('d-m-Y H:i:s'); ?>
+    <?php $model->createdAt = date('Y-m-d H:i:s'); ?>
     
     <?= $form->field($model, 'createdAt')->textInput()->hiddenInput()->label(false) ?>
 
