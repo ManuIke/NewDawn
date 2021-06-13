@@ -29,7 +29,7 @@ use yii\bootstrap4\ActiveForm;
         </div>
 
     
-        <?php $model->createdAt = date('d-m-Y H:i:s'); ?>
+        <?php $model->createdAt = date('Y-m-d H:i:s'); ?>
     
         <?= $form->field($model, 'createdAt')->textInput()->hiddenInput()->label(false) ?>
     
