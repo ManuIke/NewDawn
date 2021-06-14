@@ -49,6 +49,5 @@ $this->registerJs($js);
         <p>
             <?= Html::a('Make a post', ['create'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Chat with people', 'https://newdawnchat.herokuapp.com/chat.html', ['class' => 'btn btn-primary']) ?>
-            <a href="/chat/chat.html"> Chat with people!</a>
         </p>
 </div>
