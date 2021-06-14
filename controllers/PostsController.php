@@ -30,7 +30,7 @@ class PostsController extends Controller
                     ],
             
                     [
-                        'actions' => ['logout', 'index','view','create','update','delete'],
+                        'actions' => ['logout', 'index','view','create','update','delete','chat'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -59,6 +59,11 @@ class PostsController extends Controller
             'searchModel' => $searchModel,
             'posts' => $posts,
         ]);
+    }
+
+    public function actionChat()
+    {
+        return $this->render('chat');
     }
 
     /**

@@ -15,6 +15,10 @@ $(document).ready(function(){
         var id = $(this).closest('tr').attr('id');
         location.href = "/index.php?r=posts/view&id="+id;
     });
+
+    $('#chat').click(function(){
+        window.open("\..\..\chat\chat.html")
+    })
 });
 
 EOF;
@@ -44,5 +48,6 @@ $this->registerJs($js);
         <br>
         <p>
             <?= Html::a('Make a post', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Chat with people', ['chat'], ['class' => 'btn btn-primary']) ?>
         </p>
 </div>
