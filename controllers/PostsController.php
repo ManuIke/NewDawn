@@ -61,11 +61,6 @@ class PostsController extends Controller
         ]);
     }
 
-    public function actionChat()
-    {
-        return $this->render('chat');
-    }
-
     /**
      * Displays a single Posts model.
      * @param integer $id
