@@ -28,9 +28,13 @@ $this->title = 'Wiki';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create wiki entry', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if(!(Yii::$app->user->isGuest)):?>
+        <?php if(Yii::$app->user->identity->role == "Editor" || Yii::$app->user->identity->role == "Admin" || Yii::$app->user->identity->role == "Owner"):?>
+        <p>
+            <?= Html::a('Create wiki entry', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+        <?php endif ?>
+    <?php endif ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

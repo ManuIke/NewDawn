@@ -20,9 +20,11 @@ use yii\bootstrap4\ActiveForm;
 
     <?= $form->field($model, 'creationDate')->textInput()->label(false)->hiddenInput() ?>
 
+    <?php if(Yii::$app->user->identity->username == "Ikelest"): ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
+    <?php endif ?>
 
     <?php ActiveForm::end(); ?>
 

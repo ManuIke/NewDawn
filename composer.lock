@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6af6c007efb475e401b9043ccd66b4a7",
+    "content-hash": "96e8dac87cf5dc49f66ea390ddec68c6",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -415,6 +415,54 @@
                 "source": "https://github.com/FortAwesome/Font-Awesome"
             },
             "time": "2021-03-16T18:57:33+00:00"
+        },
+        {
+            "name": "imanilchaudhari/yii2-social-share",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imanilchaudhari/yii2-social-share.git",
+                "reference": "6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imanilchaudhari/yii2-social-share/zipball/6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f",
+                "reference": "6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "imanilchaudhari\\socialshare\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anil Chaudhari",
+                    "email": "imanilchaudhari@gmail.com"
+                }
+            ],
+            "description": "This is a social share bar for yii2 projects.",
+            "keywords": [
+                " extension",
+                " social",
+                " social share",
+                " yii2 social",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/imanilchaudhari/yii2-social-share/issues",
+                "source": "https://github.com/imanilchaudhari/yii2-social-share/tree/master"
+            },
+            "time": "2018-04-08T05:43:27+00:00"
         },
         {
             "name": "npm-asset/bootstrap",
@@ -8364,6 +8412,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "imanilchaudhari/yii2-social-share": 20,
         "yiisoft/yii2-apidoc": 20,
         "codeception/verify": 20
     },

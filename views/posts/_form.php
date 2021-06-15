@@ -45,10 +45,11 @@ use yii\bootstrap4\ActiveForm;
             <?= $form->field($model, 'content')->textarea(['maxlength' => true]) ?>
         </div>
     
-    
-        <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-        </div>
+        <?php if(Yii::$app->user->identity->banned == 0 ):?>
+            <div class="form-group">
+                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            </div>
+        <?php endif ?>
     
         <?php ActiveForm::end(); ?>
     </div>

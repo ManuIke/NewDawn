@@ -33,9 +33,13 @@ $this->title = 'Create Wiki';
             ['prompt'=>'Select a category','selected' => $model->category3]
         ) ?>
 
+    <?php if(Yii::$app->user->identity->role == "Editor" || 
+            Yii::$app->user->identity->role == "Admin" || 
+            Yii::$app->user->identity->role == "Owner"):?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
+    <?php endif?>
 
     <?php ActiveForm::end(); ?>
 

@@ -44,7 +44,9 @@ $this->registerJs($js);
         </table>
         <br>
         <p>
+        <?php if(Yii::$app->user->identity->banned == 0 ):?>
             <?= Html::a('Make a post', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php endif ?>
             <?= Html::a('Chat with people', 'https://newdawnchat.herokuapp.com/chat.html', ['class' => 'btn btn-primary']) ?>
         </p>
 </div>

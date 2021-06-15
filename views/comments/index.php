@@ -13,9 +13,9 @@ $this->title = 'Comments';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Comments', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if(Yii::$app->user->identity->banned == 0 ):?>
+            <?= Html::a('Make a comment', ['create'], ['class' => 'btn btn-success']) ?>
+    <?php endif ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

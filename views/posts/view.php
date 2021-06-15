@@ -50,7 +50,9 @@ $this->title = $model->title;
     <?php endforeach ?>
     <br>
     <p>
+    <?php if(Yii::$app->user->identity->banned == 0 ):?>
             <?= Html::a('Make a comment', ['comments/create', 'postId' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?php endif ?>
     </p>
 
 </div>

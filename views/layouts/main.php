@@ -73,7 +73,7 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
+<footer class="footer fixed-bottom">
     <div class="container">
         <p class="float-left">&copy; Ikelest <?= date('Y') ?></p>
     </div>
