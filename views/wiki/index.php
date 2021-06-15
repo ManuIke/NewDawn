@@ -12,7 +12,9 @@ $js = <<<EOF
 $(document).ready(function(){
     $('table td').click(function(e){
         var id = $(this).closest('tr').data('key');
-        location.href = "/index.php?r=wiki/view&id="+id;
+        if(id != undefined){
+            location.href = "/index.php?r=wiki/view&id="+id;
+        }
     });
 
 });

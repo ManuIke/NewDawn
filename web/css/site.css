@@ -21,6 +21,7 @@ body {
     background-color: black;
     border-top: 1px solid #ddd;
     padding-top: 20px;
+    width: 100%;
 }
 
 .jumbotron {
@@ -102,6 +103,12 @@ a.desc:after {
     background-color: transparent;
 }
 
+.navbar-toggler-icon{
+    background: repeating-linear-gradient(0deg, blue,blue 10px,white 10px, white 20px);
+    border: 1px white solid;
+    border-radius: 5px;
+}
+
 .glyphicon {
     font-family: "Font Awesome 5 Free";
 }
@@ -140,6 +147,7 @@ a.desc:after {
     width: 70%;
     background-color: rgb(157, 217, 236);
 }
+
 
 #OGPost{
     background-color: rgb(193, 238, 252);

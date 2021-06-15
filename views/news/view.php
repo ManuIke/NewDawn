@@ -18,7 +18,7 @@ $this->title = $model->title;
     </div>
     <?php if (Yii::$app->user->identity->role == "Owner") :?>
     
-    <p>
+    <p align="center">
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
