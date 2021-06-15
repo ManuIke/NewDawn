@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-    background-color: rgb(215, 232, 243);
+    background:linear-gradient(0deg, grey 0%, white 100%);
 }
 
 .wrap {

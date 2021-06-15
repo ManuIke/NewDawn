@@ -66,12 +66,22 @@ class WikiController extends Controller
     {
         $model = new Wiki();
 
+        $categories = ['Ally' =>'Ally',
+        'Enemy' =>'Enemy',
+        'Human' =>'Human',
+        'Corruption' =>'Corruption',
+        'Outsider' =>'Outsider',
+        'Cityfolk' =>'Cityfolk',
+        'Naturefolk' =>'Naturefolk',
+        'Elder' =>'Elder'];
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 
@@ -86,12 +96,22 @@ class WikiController extends Controller
     {
         $model = $this->findModel($id);
 
+        $categories = ['Ally' =>'Ally',
+        'Enemy' =>'Enemy',
+        'Human' =>'Human',
+        'Corruption' =>'Corruption',
+        'Outsider' =>'Outsider',
+        'Cityfolk' =>'Cityfolk',
+        'Naturefolk' =>'Naturefolk',
+        'Elder' =>'Elder'];
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 

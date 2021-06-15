@@ -7,15 +7,27 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\WikiSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Wikis';
-$this->params['breadcrumbs'][] = $this->title;
+$js = <<<EOF
+
+$(document).ready(function(){
+    $('table td').click(function(e){
+        var id = $(this).closest('tr').data('key');
+        location.href = "/index.php?r=wiki/view&id="+id;
+    });
+
+});
+
+EOF;
+$this->registerJs($js);
+
+$this->title = 'Wiki';
 ?>
 <div class="wiki-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Wiki', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create wiki entry', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,16 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
             'description',
             'category1',
             'category2',
-            //'category3',
+            'category3',
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

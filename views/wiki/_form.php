@@ -16,11 +16,20 @@ use yii\bootstrap4\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category1')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'category1')->label('Category 1')->dropDownList(
+            $categories,
+            ['selected' => $model->role]
+        ) ?>
 
-    <?= $form->field($model, 'category2')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'category2')->label('Category 2')->dropDownList(
+            $categories,
+            ['selected' => $model->role]
+        ) ?>
 
-    <?= $form->field($model, 'category3')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'category3')->label('Category 3')->dropDownList(
+            $categories,
+            ['selected' => $model->role]
+        ) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -7,14 +7,13 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Wiki */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Wikis', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="wiki-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php if(Yii::$app->user->identity->role == "Editor" || Yii::$app->user->identity->role == "Admin" || Yii::$app->user->identity->role == "Owner"):?>
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -25,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <?php endif ?>
 
     <?= DetailView::widget([
         'model' => $model,
