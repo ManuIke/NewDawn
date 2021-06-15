@@ -11,7 +11,7 @@ $js = <<<EOF
 
 $(document).ready(function(){
     $('table td').click(function(e){
-        var id = $(this).closest('tr').attr('id');
+        let id = $(this).closest('tr').attr('id');
         location.href = "/index.php?r=news/view&id="+id;
     });
 });
@@ -23,7 +23,7 @@ $this->title = 'News';
 ?>
 <div class="news-index">
 
-    <h1 align="center"><?= Html::encode($this->title) ?></h1>
+    <img src="https://cdn.discordapp.com/attachments/605185685506490375/851559200953335849/Game_title_-_lavender_dusk.png" id="imagetitle">
     <h3 align="center">Welcome to New Dawn's main news page regarding the developments of the games<h3>
     <?php if(!(Yii::$app->user->isGuest)):?>
         <?php if(Yii::$app->user->identity->role == "Owner"):?>

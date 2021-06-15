@@ -224,3 +224,9 @@ a.desc:after {
     animation: chillnews2 10s ease infinite
 }
 
+#imagetitle{
+    width: 45%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
