@@ -16,18 +16,20 @@ $this->title = $model->title;
     <div id="newsContent">
         <?= $model->content ?>
     </div>
-    <?php if (Yii::$app->user->identity->role == "Owner") :?>
-    
-    <p align="center">
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <?php if(!(Yii::$app->user->isGuest)):?>
+        <?php if (Yii::$app->user->identity->role == "Owner") :?>
+        
+        <p align="center">
+            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
+        <?php endif ?>
     <?php endif ?>
 
     <?= \imanilchaudhari\socialshare\ShareButton::widget([
