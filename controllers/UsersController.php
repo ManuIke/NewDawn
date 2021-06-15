@@ -31,7 +31,7 @@ class UsersController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','create'],
+                        'actions' => ['login', 'error','create','activate'],
                         'allow' => true,
                     ],
             
