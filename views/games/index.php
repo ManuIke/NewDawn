@@ -11,7 +11,7 @@ $this->title = 'Games';
 ?>
 <div class="games-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 itemprop="name"><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Games', ['create'], ['class' => 'btn btn-success']) ?>

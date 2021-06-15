@@ -9,9 +9,9 @@ use yii\grid\GridView;
 
 $this->title = 'Users';
 ?>
-<div class="users-index">
+<div class="users-index" itemscope itemtype="https://schema.org/Person">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 itemprop="name"><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Users', ['create'], ['class' => 'btn btn-success']) ?>

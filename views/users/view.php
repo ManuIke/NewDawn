@@ -20,10 +20,10 @@ $this->registerJs($js);
 $this->title = $model->username . "'s profile";
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="users-view">
+<div class="users-view" itemscope itemtype="https://schema.org/Person">
 
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 itemprop="name"><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
         'model' => $model,
