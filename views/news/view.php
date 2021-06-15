@@ -11,8 +11,13 @@ $this->title = $model->title;
 ?>
 <div class="news-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 align="center"><?= Html::encode($this->title) ?></h1>
 
+    <div id="newsContent">
+        <?= $model->content ?>
+    </div>
+    <?php if (Yii::$app->user->identity->role == "Owner") :?>
+    
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -23,15 +28,6 @@ $this->title = $model->title;
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'content',
-            'creationDate',
-        ],
-    ]) ?>
+    <?php endif ?>
 
 </div>

@@ -16,9 +16,6 @@ $(document).ready(function(){
         location.href = "/index.php?r=posts/view&id="+id;
     });
 
-    $('#chat').click(function(){
-        window.open("\..\..\chat\chat.html")
-    })
 });
 
 EOF;

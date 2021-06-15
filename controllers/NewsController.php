@@ -35,12 +35,11 @@ class NewsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new NewsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $news = (new \yii\db\Query())->select('id,title,creationDate')
+        ->from('news')->orderBy('id DESC')->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'news'=> $news
         ]);
     }
 
