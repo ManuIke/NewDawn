@@ -156,18 +156,15 @@ a.desc:after {
 
 #OGContentA{
     border: 1px solid black;
-    width: 10%;
     text-align: center;
 }
 
 #OGContentC{
     border: 1px solid black;
-    width: 80%;
 }
 
 #OGContentD{
     border: 1px solid black;
-    width: 10%;
     text-align: center;
 }
 

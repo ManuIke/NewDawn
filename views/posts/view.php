@@ -14,36 +14,36 @@ $this->title = $model->title;
     <h2><?= Html::encode($this->title) ?></h2>
 
     <div class="row" id="OGPost">
-        <div id="OGContentA">
+        <div id="OGContentA" class="col-md-2">
             <?= $model->author ?>
             <br>
             Posts:<?=$authorPosts->where('username = :username',[':username' => $model->author])->scalar();?>
             <br>
             Comments:<?=$authorComments->where('username = :username',[':username' => $model->author])->scalar();?>
         </div>
-        <div id="OGContentC">
+        <div id="OGContentC" class="col-md-8">
             <?= $model->content ?>
         </div>
 
-        <div id="OGContentD">
+        <div id="OGContentD" class="col-md-2">
             <?= $model->createdAt ?>
         </div>
     </div>
 
     <?php foreach($comments as $comment): ?>
         <div class="row" id="OGPost">
-            <div id="OGContentA">
+            <div id="OGContentA" class="col-md-2">
                 <?= $comment['author'] ?>
                     <br>
                     Posts:<?=$authorPosts->where('username = :username',[':username' => $comment['author']])->scalar();?>
                     <br>
                     Comments:<?=$authorComments->where('username = :username',[':username' => $comment['author']])->scalar();?>
             </div>
-            <div id="OGContentC">
+            <div id="OGContentC" class="col-md-8">
                 <?= $comment['text'] ?>
             </div>
 
-            <div id="OGContentD">
+            <div id="OGContentD" class="col-md-2">
                 <?= $comment['createdAt'] ?>
             </div>
         </div>
