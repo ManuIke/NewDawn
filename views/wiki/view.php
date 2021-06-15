@@ -13,17 +13,19 @@ $this->title = $model->name;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if(Yii::$app->user->identity->role == "Editor" || Yii::$app->user->identity->role == "Admin" || Yii::$app->user->identity->role == "Owner"):?>
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <?php if(!(Yii::$app->user->isGuest)):?>
+        <?php if(Yii::$app->user->identity->role == "Editor" || Yii::$app->user->identity->role == "Admin" || Yii::$app->user->identity->role == "Owner"):?>
+        <p>
+            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
+        <?php endif ?>
     <?php endif ?>
 
     <?= DetailView::widget([
