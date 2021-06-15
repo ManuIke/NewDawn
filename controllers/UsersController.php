@@ -13,6 +13,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
+use yii\bootstrap4\ActiveForm;
+use yii\web\Response;
 
 /**
  * UsersController implements the CRUD actions for Users model.
@@ -29,12 +31,12 @@ class UsersController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','create'],
                         'allow' => true,
                     ],
             
                     [
-                        'actions' => ['logout', 'index','view','create','update','delete','ban'],
+                        'actions' => ['logout', 'index','view','update','delete','ban'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -90,6 +92,11 @@ class UsersController extends Controller
     public function actionCreate()
     {
         $model = new Users(['scenario' => Users::SCENARIO_CREATE]);
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $pending = new Pending([
