@@ -36,7 +36,7 @@ class UsersController extends Controller
                     ],
             
                     [
-                        'actions' => ['logout', 'index','view','update','delete','ban'],
+                        'actions' => ['logout', 'index','view','update','delete','ban','unban'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
